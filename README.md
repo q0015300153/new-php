@@ -1,4 +1,4 @@
-i1-new-php
+new-php
 ==========
 
 ###### tags: `php` `laravel` `bash`
