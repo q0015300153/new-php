@@ -2,3 +2,4 @@ service-*/
 database/
 projects/
 nginx-alias/
+apache-alias/
