@@ -1,6 +1,6 @@
 #!/bin/bash
 ##################################################################
-# 用來啟動指定資料夾的 docker-compose 服務                           #
+# 用來啟動指定資料夾的 docker-compose 服務                         #
 # The docker-compose service used to launch the specified folder #
 ##################################################################
 
@@ -20,7 +20,7 @@ for name in "${!projects[@]}"; do
 	list+=(${name})
 	if [[ ${projects[$name]} == *".git" ]]; then
 		if ! [ -d "${name}" ]; then
-			git clone ${projects[$name]} ${name}
+			docker run -ti --rm -v ${thisPath}:/git alpine/git clone ${projects[$name]} ${name}
 		fi
 	fi
 done
@@ -71,5 +71,5 @@ fi
 # tw: 下載或新增 Laravel 專案
 # en: Download or add a Laravel project
 for name in "${!laravels[@]}"; do
-	bash add-laravel.sh ${name} ${laravels[$name]}
+	bash $(dirname "$0")/add-laravel.sh ${name} ${laravels[$name]}
 done

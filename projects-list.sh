@@ -16,8 +16,8 @@
 # 	value -> is the git path of the project, can be empty
 declare -A projects
 #projects[service-hive]=https://github.com/q0015300153/service-hive.git
-#projects[service-lnmp]=https://github.com/q0015300153/service-lnmp.git
-projects[service-lamp]=
+projects[service-lnmp]=https://github.com/q0015300153/service-lnmp.git
+#projects[service-lamp]=
 
 # tw:
 # 	設定要下載的 Laravel 專案
