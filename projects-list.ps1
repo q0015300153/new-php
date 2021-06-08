@@ -28,3 +28,4 @@ $projects.add("service-lnmp", "https://github.com/q0015300153/service-lnmp.git")
 #   value -> is the git path of the project, can be empty
 $laravels = @{}
 #$laravels.add("test-hive", "https://github.com/q0015300153/test-hive.git")
+$laravels.add("i1_home", "")
