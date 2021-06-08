@@ -41,7 +41,7 @@ foreach ($i in $list) {
 # en: Perform initialization
 foreach ($script in $init) {
     cd             (Split-Path -Path $script)
-    powershell.exe (Split-Path -Path $script -Leaf)
+    powershell.exe -executionpolicy bypass -File (Split-Path -Path $script -Leaf)
     cd             $thisPath
 }
 
@@ -70,5 +70,5 @@ if ($args.Count -eq 0) {
 # tw: 下載或新增 Laravel 專案
 # en: Download or add a Laravel project
 foreach ($name in $laravels.keys) {
-    powershell.exe "$PSScriptRoot\add-laravel.ps1" $name $laravels[$name]
+    powershell.exe -executionpolicy bypass -File "$PSScriptRoot\add-laravel.ps1" $name $laravels[$name]
 }
