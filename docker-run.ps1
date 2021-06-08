@@ -6,6 +6,8 @@
 # tw: 設定要啟動的服務
 # en: Set the service to start
 $thisPath = $PWD
+$env:PWD  = $PWD
+$env:PWD  = $env:PWD.Replace("\", "/")
 Import-module "$PSScriptRoot\projects-list.ps1" -Force
 
 # tw:

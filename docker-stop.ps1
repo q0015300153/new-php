@@ -5,6 +5,8 @@
 
 # tw: 設定要停止的服務
 # en: Set the service to start
+$env:PWD  = $PWD
+$env:PWD  = $env:PWD.Replace("\", "/")
 Import-module "$PSScriptRoot\projects-list.ps1" -Force
 
 # tw: 整理要停止的專案
