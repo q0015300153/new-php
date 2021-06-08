@@ -6,8 +6,6 @@
 # tw: 設定要啟動的服務
 # en: Set the service to start
 $thisPath = $PWD
-$env:PWD  = $PWD
-$env:PWD  = $env:PWD.Replace("\", "/")
 Import-module "$PSScriptRoot\projects-list.ps1" -Force
 
 # tw:
@@ -58,12 +56,16 @@ foreach ($script in $init) {
 if ($args.Count -eq 0) {
     foreach ($yml in $ymls) {
         cd (Split-Path -Path $yml)
+        $env:PWD = (Split-Path -Path $yml)
+        $env:PWD = $env:PWD.Replace("\", "/")
         docker-compose -f (Split-Path -Path $yml -Leaf) up -d --build
         cd $thisPath
     }
 } else {
     foreach ($yml in $ymls) {
         cd (Split-Path -Path $yml)
+        $env:PWD = (Split-Path -Path $yml)
+        $env:PWD = $env:PWD.Replace("\", "/")
         docker-compose -f (Split-Path -Path $yml -Leaf) "$args"
         cd $thisPath
     }

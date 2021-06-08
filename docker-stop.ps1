@@ -5,8 +5,6 @@
 
 # tw: 設定要停止的服務
 # en: Set the service to start
-$env:PWD  = $PWD
-$env:PWD  = $env:PWD.Replace("\", "/")
 Import-module "$PSScriptRoot\projects-list.ps1" -Force
 
 # tw: 整理要停止的專案
@@ -29,6 +27,8 @@ $thisPath = $PWD
 if ($args.Count -eq 0) {
     foreach ($yml in $ymls) {
         cd (Split-Path -Path $yml)
+        $env:PWD = (Split-Path -Path $yml)
+        $env:PWD = $env:PWD.Replace("\", "/")
         docker-compose -f (Split-Path -Path $yml -Leaf) stop
         cd $thisPath
     }
